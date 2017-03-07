@@ -22,6 +22,7 @@ public class CanvasDib extends Canvas{
     private int mariox = 10;
     private int marioy = 285;
     private int bool=1;
+    private int boolaire=0;
     private BufferedImage sample;
     private BufferedImage mario;
     private String imagenmario="./images/mario.png";
@@ -65,7 +66,7 @@ public class CanvasDib extends Canvas{
     @Override
     public void update(Graphics g)
     {
-        super.update(g);
+        //super.update(g);
         paint(g);
     }
     
@@ -84,6 +85,7 @@ public class CanvasDib extends Canvas{
     }
     
     public void imagen(){
+       if(boolaire == 0){
         if(bool ==1){
         this.imagenmario="./images/marioizq.png";
         bool=0;
@@ -92,7 +94,7 @@ public class CanvasDib extends Canvas{
         this.imagenmario="./images/marioder.png";
         bool=1;
         }
-            
+       }
         
     }
 
@@ -144,6 +146,13 @@ public class CanvasDib extends Canvas{
         this.marioy = y;
     }    
     
+    public void marioSalto(){
+         this.imagenmario="./images/mariosalto.png";
+         this.boolaire=1;
+    }
     
+    public void marioCae(){
+        this.boolaire=0;
+    }
     
 }
